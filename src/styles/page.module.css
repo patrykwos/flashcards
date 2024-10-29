@@ -1,0 +1,11 @@
+.main {
+    padding: 2rem;
+    min-height: 100vh;
+}
+
+.flashcardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
