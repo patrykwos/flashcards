@@ -1,15 +1,31 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { getWordDefinition, parseWordDefinition } from '@/api/dictionary_api';
 import styles from '@/styles/Flashcard.module.css';
 
 interface FlashcardProps {
     word: string;
-    definition: string;
 }
 
-export default function Flashcard({ word, definition }: FlashcardProps) {
+export default function Flashcard({ word }: FlashcardProps) {
     const [isFlipped, setIsFlipped] = useState(false);
+    const [wordDefinition, setWordDefinition] = useState('');
+    const [error, setError] = useState('');
+
+    useEffect(() => {
+        async function fetchWordDefinition() {
+            try {
+                const wordDefinition = await getWordDefinition(word);
+                const parsedWordDefinition = parseWordDefinition(wordDefinition);
+                setWordDefinition(parsedWordDefinition);
+            } catch (error) {
+                setError('Failed to fetch word definition');
+            }
+        }
+
+        fetchWordDefinition();
+    }, [word]);
 
     return (
         <div 
@@ -21,7 +37,7 @@ export default function Flashcard({ word, definition }: FlashcardProps) {
                     <h2>{word}</h2>
                 </div>
                 <div className={styles.flashcardBack}>
-                    <p>{definition}</p>
+                    <p>{wordDefinition}</p>
                 </div>
             </div>
         </div>

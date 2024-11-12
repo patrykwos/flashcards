@@ -7,11 +7,10 @@ export default function Home() {
     return (
         <main className={styles.main}>
             <div className={styles.flashcardContainer}>
-                {Object.entries(words).map(([word, definition]) => (
+                {words.words.map((word) => (
                     <Flashcard 
                         key={word} 
                         word={word} 
-                        definition={definition} 
                     />
                 ))}
             </div>
