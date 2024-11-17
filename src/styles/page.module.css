@@ -9,3 +9,12 @@
     gap: 20px;
     justify-content: center;
 }
+
+.title {
+    text-align: center;
+}
+
+.fileInput {
+    margin-bottom: 20px;
+    display: block;
+}
