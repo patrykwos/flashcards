@@ -4,9 +4,13 @@ async function getWordDefinition(word: string) {
     return data;
 }
 
-function parseWordDefinition(wordDefinition: any) {
+function extractWordDefinition(wordDefinition: any) {
     const firstDefinition = wordDefinition[0].meanings[0].definitions[0].definition;
     return firstDefinition;
 }
 
-export { getWordDefinition, parseWordDefinition };
+function extractMeanings(wordDefinition: any) {
+    return wordDefinition[0].meanings;
+}
+
+export { getWordDefinition, extractWordDefinition as parseWordDefinition, extractMeanings };
