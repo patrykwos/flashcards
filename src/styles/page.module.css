@@ -18,3 +18,17 @@
     margin-bottom: 20px;
     display: block;
 }
+
+.practiceModeButton {
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.practiceContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
