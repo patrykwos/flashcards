@@ -1,3 +1,3 @@
 export interface WordDictionary {
-    [key: string]: string;
+  [key: string]: string;
 }

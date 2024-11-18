@@ -1,34 +1,34 @@
 .main {
-    padding: 2rem;
-    min-height: 100vh;
+  padding: 2rem;
+  min-height: 100vh;
 }
 
 .flashcardContainer {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
 }
 
 .title {
-    text-align: center;
+  text-align: center;
 }
 
 .fileInput {
-    margin-bottom: 20px;
-    display: block;
+  margin-bottom: 20px;
+  display: block;
 }
 
 .practiceModeButton {
-    margin-bottom: 20px;
-    display: block;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .practiceContainer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
