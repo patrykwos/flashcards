@@ -6,12 +6,13 @@ import styles from "@/styles/Flashcard.module.css";
 
 interface FlashcardProps {
   word: string;
+  isSelected?: boolean;
 }
 
-export default function Flashcard({ word }: FlashcardProps) {
+export default function Flashcard({ word, isSelected }: FlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [wordDefinition, setWordDefinition] = useState("");
-  const [error, setError] = useState("");
+  const [_error, setError] = useState("");
 
   useEffect(() => {
     async function fetchWordDefinition() {
@@ -29,7 +30,8 @@ export default function Flashcard({ word }: FlashcardProps) {
 
   return (
     <div
-      className={`${styles.flashcard} ${isFlipped ? styles.flipped : ""}`}
+      className={`flashcard ${styles.flashcard} ${isFlipped ? styles.flipped : ""} ${isSelected ? styles.selected : ''}`}
+      data-word={word}
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div className={styles.flashcardInner}>

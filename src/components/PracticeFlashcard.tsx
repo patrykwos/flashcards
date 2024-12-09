@@ -22,7 +22,7 @@ export default function PracticeFlashcard({ word }: PracticeFlashcardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [meanings, setMeanings] = useState<Meaning[]>([]);
   const [selectedMeaning, setSelectedMeaning] = useState<Meaning | null>(null);
-  const [error, setError] = useState("");
+  const [_error, setError] = useState("");
 
   const selectedDefinition = selectedMeaning?.definitions[0];
   const selectedExample = selectedDefinition?.example;
@@ -54,7 +54,7 @@ export default function PracticeFlashcard({ word }: PracticeFlashcardProps) {
         </div>
         <div className={styles.flashcardBack}>
           <div className={styles.meaningButtons}>
-            {meanings.map((meaning, index) => (
+            {meanings.map((meaning, _index) => (
               <button
                 key={meaning.partOfSpeech}
                 onClick={(e) => {

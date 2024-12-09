@@ -40,3 +40,8 @@
   background-color: #3e3e3e;
   transform: rotateY(180deg);
 }
+
+.flashcard.selected {
+  border: 2px solid #008cff;
+  background-color: rgba(0, 123, 255, 0.1);
+}
