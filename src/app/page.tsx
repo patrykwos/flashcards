@@ -17,6 +17,8 @@ export default function Home() {
 
   const handleMouseDown = (event: React.MouseEvent) => {
     if (isPracticeMode) {return};
+    event.preventDefault();
+    setSelectedWords([]);
     const elements = document.elementsFromPoint(event.clientX, event.clientY);
     const isOnFlashcard = elements.some(el => el.classList.contains('flashcard'));
 
@@ -29,11 +31,11 @@ export default function Home() {
   const handleMouseUp = (_event: React.MouseEvent) => {
     setIsSelecting(false);
     selectionStart.current = null;
-    setSelectedWords([]);
   }
 
   const handleMouseMove = (event: React.MouseEvent) => {
     if (!isSelecting || isPracticeMode) return;
+    event.preventDefault();
     const elements = document.elementsFromPoint(event.clientX, event.clientY);
     const selectedCards = elements
       .map(el => el.getAttribute("data-word"))
