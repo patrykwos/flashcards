@@ -30,7 +30,7 @@ export default function Flashcard({ word, isSelected }: FlashcardProps) {
 
   return (
     <div
-      className={`flashcard ${styles.flashcard} ${isFlipped ? styles.flipped : ""} ${isSelected ? styles.selected : ''}`}
+      className={`flashcard ${styles.flashcard} ${isFlipped ? styles.flipped : ""} ${isSelected ? styles.selected : ""}`}
       data-word={word}
       onClick={() => setIsFlipped(!isFlipped)}
     >
