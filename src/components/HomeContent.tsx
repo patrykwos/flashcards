@@ -6,15 +6,15 @@ import styles from "@/styles/page.module.css";
 import { useState, useRef, use } from "react";
 
 export default function HomeContent() {
-  const { openMenu } = useMenuContext();
-
+  
   const [wordList, setWordList] = useState(words.words);
   const [isPracticeMode, setIsPracticeMode] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
-
+  
   const [isSelecting, setIsSelecting] = useState(false);
-  const [selectedWords, setSelectedWords] = useState<string[]>([]);
   const selectionStart = useRef<{ x: number; y: number } | null>(null);
+  
+  const { openMenu, selectedWords, setSelectedWords } = useMenuContext();
 
   const handleMouseDown = (event: React.MouseEvent) => {
     if (isPracticeMode) {

@@ -6,6 +6,8 @@ interface MenuContextType {
   openMenu: (e: React.MouseEvent) => void;
   closeMenu: () => void;
   handleSave: () => void;
+  selectedWords: string[];
+  setSelectedWords: (words: string[]) => void;
 }
 
 const MenuContextData = createContext<MenuContextType | undefined>(undefined);
@@ -27,6 +29,7 @@ export default function MenuContextProvider({
 }: MenuContextProviderProps) {
   const [showMenu, setShowMenu] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
+  const [selectedWords, setSelectedWords] = useState<string[]>([]);
 
   const openMenu = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -41,6 +44,7 @@ export default function MenuContextProvider({
   const handleSave = () => {
     // TODO: Implement save functionality
     console.log("Save clicked");
+    console.log(selectedWords)
     closeMenu();
   };
 
@@ -50,6 +54,8 @@ export default function MenuContextProvider({
     openMenu,
     closeMenu,
     handleSave,
+    selectedWords,
+    setSelectedWords
   };
 
   return (
