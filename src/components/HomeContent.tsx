@@ -46,9 +46,18 @@ export default function HomeContent() {
     event.preventDefault();
     const elements = document.elementsFromPoint(event.clientX, event.clientY);
     const selectedCards = elements
-      .map((el) => el.getAttribute("data-word"))
-      .filter((word): word is string => word !== null);
+      .map((el) => {
+        const word = el.getAttribute("data-word")
+        const definition = el.getAttribute("data-definition")
+      
+        if (word && definition) {
+          return {word, definition}
+        }
+        return null
+      })
+      .filter(item => item !== null)
 
+    // ToDo: Add algorithm to filter only unique words
     setSelectedWords((prev) =>
       Array.from(new Set([...prev, ...selectedCards])),
     );
@@ -108,7 +117,7 @@ export default function HomeContent() {
             <Flashcard
               key={word}
               word={word}
-              isSelected={selectedWords.includes(word)}
+              isSelected={selectedWords.some(item => item.word === word)}
             />
           ))}
         </div>
